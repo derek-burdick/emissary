@@ -1157,6 +1157,8 @@ class IR:
         )
         od["max_request_headers_kb"] = self.ambassador_module.get("max_request_headers_kb", None)
 
+        od["server_header_transformation"] = self.ambassador_module.get("server_header_transformation", "OVERWRITE")
+
         od["server_name"] = bool(self.ambassador_module.server_name != "envoy")
 
         od["custom_ambassador_id"] = bool(self.ambassador_id != "default")

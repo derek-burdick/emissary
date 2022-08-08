@@ -479,6 +479,10 @@ class V3Listener(dict):
         if max_request_headers_kb:
             base_http_config["max_request_headers_kb"] = max_request_headers_kb
 
+        base_http_config["server_header_transformation"] = self.config.ir.ambassador_module.get(
+            "server_header_transformation", "OVERWRITE"
+        )
+
         if "enable_http10" in self.config.ir.ambassador_module:
             http_options = base_http_config.setdefault("http_protocol_options", {})
             http_options["accept_http_10"] = self.config.ir.ambassador_module.enable_http10

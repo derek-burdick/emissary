@@ -139,6 +139,10 @@ type AmbassadorConfigSpec struct {
 	// Override it with this variable
 	ServerName string `json:"server_name,omitempty"`
 
+	// By default Envoy overwrites server_name
+	// Change behavior by setting server_header_transformation
+	ServerHeadTransformation string `json:"server_header_transformation,omitempty"`
+
 	// If present, service_port will be the port Ambassador listens
 	// on for microservice access. If not present, Ambassador will
 	// use 8443 if TLS is configured, 8080 otherwise.

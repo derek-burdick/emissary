@@ -66,6 +66,7 @@ class IRAmbassador(IRResource):
         "resolver",
         "error_response_overrides",
         "header_case_overrides",
+        "server_header_transformation",
         "server_name",
         "service_port",
         "set_current_client_cert_details",
@@ -153,6 +154,7 @@ class IRAmbassador(IRResource):
             debug_mode=False,
             preserve_external_request_id=False,
             max_request_headers_kb=None,
+            server_header_transformation="OVERWRITE"
             **kwargs,
         )
 
